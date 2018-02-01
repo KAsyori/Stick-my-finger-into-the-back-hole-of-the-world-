@@ -13,7 +13,7 @@
 ## Note:
    `Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows. `
 ## 解题思路
-`从上面的Note可以看出，这道题的一个主要难点是在数据的“overflws”上，譬如2147483648这样站在长整型悬崖边上的数据，反转之后各位上的8一下子变到最高位去，自然就超出长整型的范围了。所以我们可以用范围更大的长长整型先暂存一下我们反转的结果，最后判断一下这个在不在32位整型数的范围之内，如果在就直接返回，如果不在就返回0.
+`从上面的Note可以看出，这道题的一个主要难点是在数据的“overflws”上，譬如2147483648这样站在长整型悬崖边上的数据，反转之后各位上的8一下子变到最高位去，自然就超出长整型的范围了。所以我们可以用**范围更大的长长整型**先暂存一下我们反转的结果，最后判断一下这个**在不在32位整型数的范围之内**，如果在就直接返回，如果不在就返回0.
 其实鉴于java的String类可以很方便地实现整型和字符串的转换，这道题完全可以用另一种做法，但是为了迎合考点，这次我自始至终都在用long int和long long int解题。
 `
 ## 代码
