@@ -31,10 +31,10 @@ class Solution {
 2.需要一个变量来储存扩张过程中曾出现的最大和
 3.当前面一整段数列与下一位的和都小于下一个数时，以下一个数作为开（这往往意味着前一段数列和为负数）
 ```java
-public static int maxSubArray(int[] A) {
-    int maxSoFar=A[0], maxEndingHere=A[0];
-    for (int i=1;i<A.length;++i){
-    	maxEndingHere= Math.max(maxEndingHere+A[i],A[i]);
+public static int maxSubArray(int[] nums) {
+    int maxSoFar=nums[0], maxEndingHere=nums[0];
+    for (int i=1;i<nums.length;++i){
+    	maxEndingHere= Math.max(maxEndingHere+nums[i],nums[i]);
     	maxSoFar=Math.max(maxSoFar, maxEndingHere);	
     }
     return maxSoFar;
