@@ -10,6 +10,26 @@ If it is overflow, return MAX_INT.
 当然为了避免结果也overflow，计数的数要用double。
 ## 代码
 ···java
+class Solution {
+    public int divide(int dividend, int divisor) {
+        boolean positive = true;
+		if(dividend < 0) positive = (divisor < 0) ? true : false;
+		else positive = (divisor > 0) ? true : false;
+		dividend = (dividend < 0) ? -dividend : dividend;
+		divisor = (divisor < 0) ? -divisor : divisor;
+		double res = 0;
+		while (true) {
+			dividend -= divisor;
+            if (dividend >= 0)
+			    res ++;
+            else
+                break;
+			if (res > Integer.MAX_VALUE) return (positive) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+		}
+		int result =(int) res;
+		return (positive) ? result : -result;
+    }
+}
 ···
 ## 总结
 用这个方法在计算大数据的时候，比如int最大值除以1的时候会严重超时，但是目前没有找到更好的解决办法。
