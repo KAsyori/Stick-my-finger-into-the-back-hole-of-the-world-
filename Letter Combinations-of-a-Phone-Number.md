@@ -16,7 +16,7 @@ Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 2. 字母或符号和对应的数字绑定，首先我想到的应该是结构体数组。难点在于，如何形成n个字母一组元素，*因为直接使用list.add的话会视为  
 直接添加了一个元素，而不是在元素中增加一个字母。*  
 ## 代码
-···java
+```java
 class Solution {
     public List<String> letterCombinations(String digits) {
         LinkedList<String> ans = new LinkedList<String>();
@@ -34,11 +34,11 @@ class Solution {
         return ans;
     }
 }
-···
+```
 ### 代码分析
 这个在discuss区看见的代码没有用结构体数组，而是用以“0“开头的String数组**使得字符串在数组中的角标与电话中的位置对应**  
-那么解决我的思路中的难题的代码就是 ：  
-···java
+那么解决我的思路中的难题的代码就是 
+```java
 String t = ans.remove;
 ```
 这是一个迭代的解决方案。对于添加的每一个数字，**删除并复制队列中的每个元素**，并将可能的字母添加到每个元素中，然后再次将更新过的元素添加回队列中。  
